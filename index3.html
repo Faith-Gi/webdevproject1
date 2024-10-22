@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLuxe Travel Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eee7e7;
+            color: #333;
+        }
+
+        header {
+            background-color: #000;
+            color: gold;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: gold;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        p{
+            text-align: center;
+        }
+
+      
+
+        .button {
+            background-color: gold;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #ffd700;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .destination-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .destination-card {
+            background: white;
+            margin: 10px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 0 0 30%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .destination-details {
+            padding: 15px;
+        }
+
+        .details {
+            display: none;
+            margin: 10px 0;
+        }
+
+        /* Modal styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+    padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: gold;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .destination-card img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+.destination-details {
+    padding: 15px;
+}
+
+.details img {
+    width: 100%; /* Make detail images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    margin-top: 10px; /* Space between images */
+}
+
+/* Optional: Style for image containers to keep them uniform */
+.image-container {
+    display: flex;
+    justify-content: space-between; /* Space out images */
+    margin-top: 10px; /* Space between images and text */
+}
+
+/* Optional: Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .destination-card {
+        flex: 0 0 45%; /* Adjust card width on smaller screens */
+    }
+
+    .details img {
+        width: 100%; /* Keep images responsive */
+    }
+}
+
+@media (max-width: 480px) {
+    .destination-card {
+        flex: 0 0 100%; /* Full width on very small screens */
+    }
+}
+
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .about,
+        .contact {
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .destination-card {
+                flex: 0 0 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destination-card {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WanderLuxe</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <button id="loginBtn" class="button" onclick="openLoginModal()">Login</button>
+            <button id="adminBtn" class="button" onclick="openAdminDashboard()">Admin Dashboard</button>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <div class="container" id="home">
+        <h2>Welcome to WanderLuxe</h2>
+        <p>Discover breathtaking travel destinations and create unforgettable memories with our curated travel experiences.</p>
+    </div>
+
+    <!-- Destinations Section -->
+    <div class="container" id="destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination-gallery" id="destinationGallery">
+            <!-- Destination cards will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container about" id="about">
+        <h2>About Us</h2>
+        <p>WanderLuxe is dedicated to bringing you the best travel experiences around the globe. We offer personalized travel packages, insightful information, and beautiful photography to inspire your next adventure.</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us at <a href="mailto:info@wanderluxe.com">info@wanderluxe.com</a>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 WanderLuxe. All rights reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('loginModal')" style="cursor:pointer; float:right;">&times;</span>
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button class="button" onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('adminDashboard')" style="cursor:pointer; float:right;">&times;</span>
+            <h2>Admin Dashboard</h2>
+            <button class="button" onclick="openAddDestinationModal()">Add New Destination</button>
+            <table id="adminTable" style="width:100%; border-collapse: collapse;">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                <!-- Destination management will be loaded here -->
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Destination Modal -->
+    <div id="addDestinationModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('addDestinationModal')" style="cursor:pointer; float:right;">&times;</span>
+            <h2>Add New Destination</h2>
+            <input type="text" id="newName" placeholder="Destination Name" required>
+            <input type="text" id="newLocation" placeholder="Location" required>
+            <textarea id="newDescription" placeholder="Description" required></textarea>
+            <input type="text" id="newBestTime" placeholder="Best Time to Visit" required>
+            <input type="file" id="newImages" multiple required>
+            <button class="button" onclick="addDestination()">Add Destination</button>
+        </div>
+    </div>
+
+    <script>
+        const destinations = [
+            {
+                name: "Bali",
+                location: "Indonesia",
+                description: "Known for its stunning landscapes and rich culture.Price:$1200 Travel Options:Flight, Hotel, Guided Tours",
+                bestTime: "April to October",
+                images: ["images/bali data 1.jpg", "images/Bali main.jpg", "images/bali data 2.jpg"]
+            },
+            {
+                name: "Paris",
+                location: "France",
+                description: "Known for its iconic landmarks and romantic atmosphere. Price:$1000 Travel Options:Flight, Hotel, Guided Tours",
+                bestTime: "April to June, September to October",
+                images: ["images/paris main.jpg", "images/paris data 1.jpg", "images/paris data 2.jpg"]
+            },
+            {
+                name: "New York",
+                location: "USA",
+                description: "Famous for its skyline and vibrant culture. Price:$1500 Travel Options:Flight, Hotel, Guided Tours",
+                bestTime: "April to June, September to November",
+                images: ["images/new york data 1.jpg", "images/new york main.jpg", "images/new york data 3.jpg"]
+            },
+            {
+                name: "Sydney",
+                location: "Australia",
+                description: "Famous for its Sydney Opera House. Price:$2000 Travel Options:Flight, Hotel, Guided Tours",
+                bestTime: "September to November, March to May",
+                images: ["images/sydney main.jpg", "images/sydney data 1.jpg", "images/sydney data 2.jpg"]
+            },
+            {
+                name: "Tokyo",
+                location: "Japan",
+                description: "A city known for its blend of traditional and modern culture. Price:$800 Travel Options:Flight, Hotel, Guided Tours",
+                bestTime: "March to May, September to November",
+                images: ["images/tokyo data 1.jpg", "images/tokyo main.jpg", "images/tokyo data 2.jpg"]
+            },
+            {
+                name: "Rome",
+                location: "Italy",
+                description: "Famous for its ancient history and stunning architecture. Price:$600 Travel Options:Flight, Hotel, Guided Tours",
+                bestTime: "April to June, September to October",
+                images: ["images/rome main.jpg", "images/rome data 1.jpg", "images/rome data 2.jpg"],
+            },
+        ];
+       
+           
+        const destinationGallery = document.getElementById('destinationGallery');
+        const adminTable = document.getElementById('adminTable');
+
+        // Function to load destinations to the gallery
+        function loadDestinations() {
+            destinationGallery.innerHTML = '';
+            destinations.forEach((destination, index) => {
+                const card = document.createElement('div');
+                card.className = 'destination-card';
+                card.innerHTML = `
+                    <img src="${destination.images[0]}" alt="${destination.name}">
+                    <div class="destination-details">
+                        <h3>${destination.name}</h3>
+                        <p>${destination.description}</p>
+                        <button class="button" onclick="viewDetails(${index})">View Details</button>
+                        <div class="details" id="details-${index}">
+                            <h4>Details</h4>
+                            <p><strong>Location:</strong> ${destination.location}</p>
+                            <p><strong>Best Time to Visit:</strong> ${destination.bestTime}</p>
+                            <div>
+                                ${destination.images.map((img) => `<img src="${img}" alt="${destination.name}" style="width: 100%; height: auto; margin: 5px;">`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                destinationGallery.appendChild(card);
+            });
+        }
+
+        // Function to toggle details view
+        function viewDetails(index) {
+            const details = document.getElementById(`details-${index}`);
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Function to open the login modal
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        // Function to close modals
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Function to log in (placeholder functionality)
+        function login() {
+            alert('Login functionality is not implemented yet!');
+            closeModal('loginModal');
+        }
+
+        // Function to open the admin dashboard
+        function openAdminDashboard() {
+            document.getElementById('adminDashboard').style.display = 'block';
+            loadAdminDestinations();
+        }
+
+        // Function to load destinations in admin table
+        function loadAdminDestinations() {
+            adminTable.innerHTML = `
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            `;
+            destinations.forEach((destination, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${destination.name}</td>
+                    <td>${destination.description}</td>
+                    <td>
+                        <button class="button" onclick="editDestination(${index})">Edit</button>
+                        <button class="button" onclick="deleteDestination(${index})">Delete</button>
+                    </td>
+                `;
+                adminTable.appendChild(row);
+            });
+        }
+
+        // Function to open modal for adding new destination
+        function openAddDestinationModal() {
+            document.getElementById('addDestinationModal').style.display = 'block';
+        }
+
+        // Function to add new destination
+        function addDestination() {
+            const name = document.getElementById('newName').value;
+            const location = document.getElementById('newLocation').value;
+            const description = document.getElementById('newDescription').value;
+            const bestTime = document.getElementById('newBestTime').value;
+            const images = Array.from(document.getElementById('newImages').files).map(file => URL.createObjectURL(file));
+
+            destinations.push({ name, location, description, bestTime, images });
+            loadDestinations();
+            loadAdminDestinations();
+            closeModal('addDestinationModal');
+        }
+
+        // Function to edit a destination (placeholder functionality)
+        function editDestination(index) {
+            alert('Edit functionality is not implemented yet!');
+        }
+
+        // Function to delete a destination
+        function deleteDestination(index) {
+            if (confirm('Are you sure you want to delete this destination?')) {
+                destinations.splice(index, 1);
+                loadDestinations();
+                loadAdminDestinations();
+            }
+        }
+
+        // Load destinations on initial page load
+        loadDestinations();
+
+        
+    </script>
+    
+
+</body>
+
+</html>
+
+
