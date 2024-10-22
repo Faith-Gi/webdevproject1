@@ -4,18 +4,20 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  // Admin credentials
  $admin_username = 'Admin';
- $admin_password = '1234';
+ $admin_password = 'Web2class2024';
+ 
  // Get user input from form
  $username = $_POST['username'];
  $password = $_POST['password'];
  // Validate credentials
  if ($username === $admin_username && $password === $admin_password) {
  $_SESSION['admin_logged_in'] = true;
- header("Location: admin-dashboard.php");
+ 
+ header("Location: admins.php");
  exit;
  } else {
  echo "<script>alert('Incorrect username or password!');</script>";
- header("Location: index3.html");
+ header("Location: index.php");
  }
 }
 ?>

@@ -1,0 +1,252 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee7e7;
+    color: #333;
+    overflow: hidden;
+}
+
+header {
+    background-color: #000;
+    color: gold;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: gold;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.loggedIn{
+  display: none;  
+}
+p{
+    text-align: center;
+}
+
+
+
+.button {
+    background-color: gold;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #ffd700;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+
+.destination-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.destination-card {
+    background: white;
+    margin: 10px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 0 0 30%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: auto;
+}
+
+.destination-details {
+    padding: 15px;
+}
+
+.details {
+    display: none;
+    margin: 10px 0;
+}
+
+/* Modal styles */
+.modal {
+display: none; 
+position: fixed; 
+z-index: 1000; 
+left: 0;
+top: 0;
+width: 100%; 
+height: 100%; 
+overflow: auto; 
+background-color: rgba(0,0,0,0.5); 
+padding-top: 60px; 
+}
+
+.modal-content {
+background-color: #fefefe;
+margin: 5% auto; 
+padding: 20px;
+border: 1px solid #888;
+width: 30%; 
+border-radius: 8px;
+position: relative;
+}
+
+.close {
+position: absolute;
+right: 10px;
+top: 10px;
+color: #aaa;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+input[type=text], input[type=password] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+button {
+width: 100%;
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #45a049;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: gold;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.destination-card img {
+width: 100%; /* Make images responsive */
+height: auto; /* Maintain aspect ratio */
+border-radius: 10px; /* Add rounded corners */
+}
+
+.destination-details {
+padding: 15px;
+}
+
+.details img {
+width: 100%; /* Make detail images responsive */
+height: auto; /* Maintain aspect ratio */
+border-radius: 10px; /* Add rounded corners */
+margin-top: 10px; /* Space between images */
+}
+
+/* Optional: Style for image containers to keep them uniform */
+.image-container {
+display: flex;
+justify-content: space-between; /* Space out images */
+margin-top: 10px; /* Space between images and text */
+}
+
+/* Optional: Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+.destination-card {
+flex: 0 0 45%; /* Adjust card width on smaller screens */
+}
+
+.details img {
+width: 100%; /* Keep images responsive */
+}
+}
+
+@media (max-width: 480px) {
+.destination-card {
+flex: 0 0 100%; /* Full width on very small screens */
+}
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.about,
+.contact {
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .destination-card {
+        flex: 0 0 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .destination-card {
+        flex: 0 0 100%;
+    }
+}
