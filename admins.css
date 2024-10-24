@@ -1,4 +1,4 @@
-/* CSS for admin form page */
+/* General body styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -10,59 +10,64 @@ body {
     height: 100vh;
 }
 
+/* Form container */
 form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
-}
-
-form label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-form input[type="text"],
-form input[type="number"],
-form input[type="url"],
-form input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
 }
 
-form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Form labels */
+label {
     font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+input[type="url"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
     width: 100%;
 }
 
-form input[type="submit"]:hover {
-    background-color: #45a049;
+input[type="submit"]:hover {
+    background-color: #218838;
 }
 
-form input:focus {
-    border-color: #4CAF50;
-    outline: none;
+/* Form layout spacing */
+form > label, form > input {
+    margin-bottom: 12px;
 }
 
-form input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-form input[type="number"]::-webkit-outer-spin-button,
-form input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* Adjustments for smaller screens */
+@media (max-width: 480px) {
+    form {
+        width: 100%;
+        padding: 15px;
+    }
 }
