@@ -17,7 +17,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
     <style>
         body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: orange;
     margin: 0;
     padding: 0;
     display: flex;
@@ -42,7 +42,7 @@ label {
     font-weight: bold;
     display: block;
     margin-bottom: 6px;
-    color: #333;
+    color: blue;
 }
 
 /* Input fields */
@@ -52,7 +52,7 @@ input[type="url"],
 input[type="date"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid transparent;
     border-radius: 4px;
     font-size: 14px;
     margin-bottom: 20px;
@@ -72,7 +72,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: green;
 }
 
 /* Form layout spacing */
