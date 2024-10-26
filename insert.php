@@ -9,13 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  $best = $_POST["best"];
  $locations = $_POST["location"];
  $descriptions = $_POST["description"];
+ $image_url = $_POST["image"];
  // Insert student data into the database
- $sql = "INSERT INTO travellers (title, rating, link, best, locations,descriptions) 
- VALUES ('$title', '$rating', '$link', '$best', '$locations','$descriptions')";
+ $sql = "INSERT INTO travellers (title, rating, link, best, locations,descriptions,images) 
+ VALUES ('$title', '$rating', '$link', '$best', '$locations','$descriptions','$image_url')";
  if ($conn->query($sql) === TRUE) {
     //echo "New Travel record created successfully";
     echo "<script>alert('New Travel record created successfully');
-     window.location.replace(\"index3.php\");</script>";
+     window.location.replace(\"homepage.php\");</script>";
     //header("location: index3.html");
  } else {
  echo "Error: " . $sql . "<br>" . $conn->error;

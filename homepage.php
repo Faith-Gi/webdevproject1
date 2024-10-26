@@ -18,6 +18,7 @@
             <a href="#contact">Contact</a>
             <a href="./admins.php">Add Destinations</a>
         </nav>
+        <marquee style="padding: 25px;" direction="right">Special Special destinations Coming soon on 20/2/2025.</marquee>
     </header>
 
     <!-- Home Section -->
